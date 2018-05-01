@@ -1,0 +1,1 @@
+export const subSystem: string = '//linkeding.s1.natapp.cc/sso'
