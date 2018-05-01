@@ -22,7 +22,7 @@ export default class Home extends React.Component<HomeComponent, any> {
     //   console.log(info)
     if(info.key == 'loginOut'){
         loginOut().then((status: boolean) => {
-            this.props.history.replace('/login')
+            status && this.props.history.replace('/login')
         })
     }
   }
