@@ -15,11 +15,11 @@ import {RootComponenet} from './interface'
 
 export default class Root extends React.Component<RootComponenet, any>{
     public componentDidMount(){
-        // console.log(this.props)
+        console.log(this.props)
         let {history} = this.props
         let status: boolean = auth.IS_LOGIN()
         if(status){
-            return history.replace('/')
+            return history.replace(this.props.location.pathname)
         }
         // let {history} = this.props
         history && history.replace('/login')

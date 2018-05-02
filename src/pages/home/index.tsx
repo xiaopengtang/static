@@ -4,11 +4,29 @@ import {loginOut} from '../../utils/auth'
 import "./index.css"
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu
+import {Route, Switch} from 'react-router-dom'
+import UserList from './user/list'
 // const MenuItemGroup = Menu.ItemGroup;
 export interface HomeComponent {
     history?: any
 }
-
+/* class Demo extends React.Component{
+  public render(){
+    return (<h2>this is test</h2>)
+  }
+}
+class ContentBody extends React.Component{
+  public render(){
+    return (
+      <Content style={{ margin: '24px 16px', padding: 24, background: '#fff' }}>
+        <Switch>
+          <Route path="" component={Demo} />
+          <Route path="user" component={UserList} />
+        </Switch>
+      </Content>
+    )
+  }
+} */
 export default class Home extends React.Component<HomeComponent, any> {
   state = {
     collapsed: false,
@@ -27,6 +45,7 @@ export default class Home extends React.Component<HomeComponent, any> {
     }
   }
   render() {
+    console.log(this.props)
     return (
       <Layout className="home-body">
         <Sider
@@ -83,9 +102,11 @@ export default class Home extends React.Component<HomeComponent, any> {
             </div>
                
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-            Content
-          </Content>
+          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff' }}>
+            <Switch>
+              <Route path="/" component={UserList} />
+            </Switch>
+          </Content> 
         </Layout>
       </Layout>
     );
